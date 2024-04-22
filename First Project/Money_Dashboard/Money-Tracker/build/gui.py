@@ -17,6 +17,7 @@ def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
 window = Tk()
+window.title("Budget Tracker")
 
 # Format and display data
 def add_Sum_And_Calculate_Display(some_var, some_id_text):
@@ -34,7 +35,7 @@ def check_For_Name():
         name = entry_1.get().lower()
         # Take input and convert it to double sum
         new_income = float(entry_2.get())
-                
+        
         if name == "add" or name == "income":
             # Sum our new income with our current income value
             income += new_income
@@ -224,7 +225,8 @@ entry_1 = Entry(
     bd=0,
     bg="#E3E3E3",
     fg="#000716",
-    highlightthickness=0
+    highlightthickness=0,
+    font=("Inter Bold", 20)
 )
 entry_1.place(
     x=57.0,
@@ -244,7 +246,8 @@ entry_2 = Entry(
     bd=0,
     bg="#E3E3E3",
     fg="#000716",
-    highlightthickness=0
+    highlightthickness=0,
+    font=("Inter Bold", 20)
 )
 entry_2.place(
     x=56.0,
