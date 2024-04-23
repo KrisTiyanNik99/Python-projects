@@ -16,6 +16,12 @@ This repository contains multiple Python projects organized within the `Python P
     - Main File: `gui.py`
 
 2. **[Second Project: Login System](./#second-project)**
+      The second project is a login form application designed to manage user authentication. The application allows users to input their username and password, which are then stored in a JSON file upon clicking         the login button. Additionally, the login form includes a "suggest password" button, which automatically generates a random password and inserts it directly into the password field.
+    - User-friendly login interface.
+    - Ability to input and store username and password.
+    - Storage of user credentials in a JSON file.
+    - "Suggest password" button for automatic password generation.
+      This project demonstrates proficiency in handling user input, data storage, and basic security measures for user authentication within Python applications.
 
 ## Usage
 - Clone the repository to your local machine.
