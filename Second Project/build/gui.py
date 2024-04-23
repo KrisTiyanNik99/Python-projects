@@ -3,13 +3,12 @@
 # https://github.com/ParthJadhav/Tkinter-Designer
 
 # Import my custom class
-from s_pass import Suggest_pass
+from s_pass import Sug_and_Save_data
 from pathlib import Path
 
 # from tkinter import *
 # Explicit imports to satisfy Flake8
 from tkinter import Tk, END, Canvas, Entry, Text, Button, PhotoImage, messagebox
-
 
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path(r"C:\Users\Christian\Desktop\Python projects\Second Project\build\assets\frame0")
@@ -17,7 +16,6 @@ ASSETS_PATH = OUTPUT_PATH / Path(r"C:\Users\Christian\Desktop\Python projects\Se
 
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
-
 
 window = Tk()
 window.title("Login System")
@@ -29,16 +27,16 @@ def set_sug_pass():
     # Clear password field
     entry_2.delete(0, END)
     
-    # Create instance of mu custom class
-    suggest = Suggest_pass()
+    # Create instance of my custom class
+    suggest = Sug_and_Save_data()
     # Call my function who create my random password
     sug_password = suggest.create_password()
     
     # Set my password in "pass field"
     entry_2.insert(0, sug_password)
-    print(entry_2.get())
 
-def take_inputs():
+def check_inputs():
+    global json_file_path
     # Take all client inputs
     username = entry_1.get()
     password = entry_2.get()
@@ -47,8 +45,13 @@ def take_inputs():
     if username == "" or password == "":
         messagebox.showinfo("ERROR", "You need to fill all fields!")
     else:
-        print(username)
-        print(password)
+        # Create new instance of Sug_and_Save_data class
+        json_saving_var = Sug_and_Save_data()
+        
+        # Json file path
+        json_file_path = r"C:\Users\Christian\Desktop\Python projects\Second Project\templates\user_pass.json"
+        
+        json_saveing = json_saving_var.save_data_to_json(json_file_path, username=username, password=password)
 
 canvas = Canvas(
     window,
@@ -154,7 +157,7 @@ button_2 = Button(
     image=button_image_2,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: take_inputs(),
+    command=lambda: check_inputs(),
     relief="flat"
 )
 button_2.place(
