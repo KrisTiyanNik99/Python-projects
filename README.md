@@ -22,6 +22,7 @@ This repository contains multiple Python projects organized within the `Python P
     - Login Authentication: Validates user input against stored credentials.
     - JSON File Handling: Stores and retrieves usernames and passwords from a JSON file.
     - "Suggest password" button for automatic password generation.
+   
    This project serves as a fundamental demonstration of user authentication and data management techniques in Python, showcasing practical implementation of login systems.
 
 ## Usage
