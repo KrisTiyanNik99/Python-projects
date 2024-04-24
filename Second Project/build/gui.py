@@ -49,9 +49,14 @@ def check_inputs():
         json_saving_var = Sug_and_Save_data()
         
         # Json file path
-        json_file_path = r"C:\Users\Christian\Desktop\Python projects\Second Project\templates\user_pass.json"
+        json_file_path = r"C:\Users\Christian\Desktop\Python projects\Second Project\login_data\user_pass.json"
+        json_saving = json_saving_var.save_data_to_json(json_file_path, username=username, password=password)
         
-        json_saveing = json_saving_var.save_data_to_json(json_file_path, username=username, password=password)
+        # Check if we have already this data or not
+        if (json_saving):
+            messagebox.showinfo("Login", "You successfully login!")
+        else:
+            messagebox.showinfo("Not Found!", "You have new registration!")
 
 canvas = Canvas(
     window,

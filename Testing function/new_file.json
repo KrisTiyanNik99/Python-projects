@@ -1,0 +1,30 @@
+{
+    "data": [
+        {
+            "username": "user_test3",
+            "password": "pass_test3"
+        },
+        {
+            "username": "user_test2",
+            "password": "pass_test2"
+        },
+        {
+            "username": "user_test1",
+            "password": "pass_test1"
+        }
+    ],
+    "loaded": [
+        {
+            "username": "username3",
+            "password": "password3"
+        },
+        {
+            "username": "username2",
+            "password": "password2"
+        },
+        {
+            "username": "loaded1",
+            "password": "password1"
+        }
+    ]
+}

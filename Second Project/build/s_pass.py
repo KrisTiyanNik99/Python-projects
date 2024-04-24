@@ -1,6 +1,5 @@
 import random
 import json
-import os
 
 # Create our customize class - "Suggest_pass"
 class Sug_and_Save_data:
@@ -24,17 +23,32 @@ class Sug_and_Save_data:
         
         # Read json file
         with open(json_file_path, "r") as json_file:
-            data = json.load(json_file)
+            # Load all data in our json file
+            loaded_data = json.load(json_file)
         
-        # Get new data and save it in the variable
+        # Loop all entity data in the json file
+        for entity in loaded_data:
+            # Loaded entity
+            en_username = entity["username"]
+            en_password = entity["password"]
+            
+            # Check if we have match
+            if (username == en_username) and (password == en_password):
+                return True
+        
+        # This block of code is responsible for adding new data (username and password) to the
+        # existing data loaded from a JSON file and then writing the updated data back to the
+        # JSON file.
         new_data = {
             "username" : username,
             "password" : password
         }
-        # Set our new data (in last position) in our list with already loaded data
-        len_num_list = len(data)
-        data.insert(len_num_list,new_data)
         
+        # Set our new data (in last position) in our list
+        len_num_list = len(loaded_data)
+        loaded_data.insert(len_num_list, new_data)
+                
         # Write json file with all data
         with open(json_file_path, "w") as jf:
-            json.dump(data, jf, indent=5)
+            json.dump(loaded_data, jf, indent=5)
+        return False
