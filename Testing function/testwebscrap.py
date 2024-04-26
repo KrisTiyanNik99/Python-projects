@@ -4,6 +4,7 @@ import requests
 
 # Create instance of Data time and format it 
 current_data = datetime.now().strftime("%Y-%m-%d")
+print(current_data)
 
 # Format the url
 url = f"https://bg.fuelo.net/prices/date/{current_data}?lang=bg"
