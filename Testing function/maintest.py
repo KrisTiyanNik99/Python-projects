@@ -257,7 +257,7 @@ for student in students:
 
 # Sets
 
-# Sets are unordered and unidexed list with no duplicate values
+# Sets are unordered and unindexed list with no duplicate values
 utensils = {"spoon","knife","fork","FORK"}
 utensils.remove("FORK")
 utensils.add("napkin")

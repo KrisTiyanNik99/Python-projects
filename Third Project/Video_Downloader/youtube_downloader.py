@@ -23,9 +23,14 @@ def download_Video():
         yt_video.download(saved_file_url)
         is_downloaded = f"Successfully Downloaded {yt_video.title} Video!"
         color_text = 'green'
-    except:
+    except Exception as e:
+        # Print with red letters our exception
         color_text = 'red'
-        is_downloaded = "YouTube video link is invalid or not found!"
+        is_downloaded = f"An error occurred: {str(e)}"
+        
+        # Reset progress bar and text above him
+        percentage_label.configure(text="0%")
+        progress_bar.set(0)
     # Message in the end
     notification_message.configure(text=is_downloaded, text_color=color_text)
 
