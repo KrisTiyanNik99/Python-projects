@@ -12,19 +12,12 @@ yt = YouTube(
     'http://youtube.com/watch?v=2lAe1cqCOXo')
 video = yt.streams
 resolutions = []
-print(type(resolutions))
 for res in video:
     resolution = res.resolution
-    itag = res.itag
-    new_info = {
-        "resolution": resolution,
-        "itag": itag
-    }
-    if resolution in resolutions:
-        continue
-    else:
-        resolutions.insert(0, new_info)
-print(resolutions)
+    resolutions.insert(0, resolution)
+    
+video = yt.streams.filter(res="720p")
+print(video)
 video.download()
 
 pty = Playlist('https://www.youtube.com/playlist?list=PLS1QulWo1RIaJECMeUT4LFwJ-ghgoSH6n')
