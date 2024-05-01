@@ -36,6 +36,10 @@ def take_resolution():
         
         # Turn "is_resolution_check" to True
         is_resolution_check = True
+        
+        # Reset all labels
+        downloaded_location.configure(text="")
+        notification_message.configure(text="")
     except Exception as e:
         notification_message.configure(text=e)
 
@@ -60,7 +64,6 @@ def download_Video():
         
             # Get value from drop down menu with resolutions
             resolution = resolution_menu.get()
-            print(resolution)
             
             # Check for chosen option
             if resolution == "None":
@@ -71,7 +74,6 @@ def download_Video():
                 yt_video = yt_Object.streams.filter(res=resolution).first()
                 if yt_video == None:
                     yt_video = yt_Object.streams.get_highest_resolution()
-                print(yt_video)
             notification_message.configure(text='')
             
             # Download video
